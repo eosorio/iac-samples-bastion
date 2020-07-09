@@ -14,5 +14,6 @@ resource "aws_vpc" "demo_vpc" {
 }
 
 module "networking" {
+    vpc_id       = aws_vpc.demo_vpc.id
     source       = "./networking"
 }
