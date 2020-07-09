@@ -1,0 +1,4 @@
+awsprofile.tfvars
+.terraform
+.DS_Store
+backend.tf
