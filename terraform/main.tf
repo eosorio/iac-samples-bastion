@@ -6,7 +6,7 @@ resource "aws_vpc" "demo_vpc" {
     enable_dns_hostnames  = true
     enable_dns_support    = true
 
-    tags {
+    tags = {
         Name          = "demo_vpc"
         Environment   = var.environment
         IaCRepo       = var.repo_url
