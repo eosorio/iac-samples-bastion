@@ -12,3 +12,7 @@ resource "aws_vpc" "demo_vpc" {
         IaCRepo       = var.repo_url
     }
 }
+
+module "networking" {
+    source       = "./networking"
+}
