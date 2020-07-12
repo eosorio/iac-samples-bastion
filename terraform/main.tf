@@ -30,9 +30,5 @@ module "networking" {
     repo_url     = module.tags.repo_url
 
     vpc_id       = aws_vpc.demo_vpc.id
-    subnet_cidrs = {
-      public1    = ""
-      public2    = ""
-      public3    = ""
-    }
+    subnet_cidrs = var.subnet_cidrs
 }
