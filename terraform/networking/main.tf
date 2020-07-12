@@ -1,5 +1,15 @@
 #--- networking/main.tf
 
+resource "aws_internet_gateway" "staging_igw" {
+  vpc_id      = var.vpc_id
+
+  tags   = {
+    Name          = "staging_igw"
+    Environment   = var.environment
+    IaCRepo       = var.repo_url
+  }
+}
+
 resource "aws_subnet" "bastion_public_subnet1" {
   vpc_id                  = var.vpc_id
   cidr_block              = var.subnet_cidrs["public1"]
@@ -34,7 +44,7 @@ resource "aws_security_group" "public_ssh" {
   }
 
   tags         = {
-    Name = "public_ssh"
+    Name          = "public_ssh"
     Environment   = var.environment
     IaCRepo       = var.repo_url
   }
