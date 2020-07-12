@@ -1,10 +1,11 @@
 #--- root terraform.tfvars
 # Common tags
-environment   = "staging"
-repo_url      = "https://github.com/eosorio/iac-samples-bastion/terraform"
+environment                = "staging"
+repo_url                   = "https://github.com/eosorio/iac-samples-bastion/terraform"
 
-vpc_cidr       = "10.1.0.0/16"
-vpc_id         = ""
+vpc_cidr                   = "10.1.0.0/16"
+vpc_id                     = ""
+vpc_default_route_table_id = ""
 
 # Networking
 subnet_cidrs       = {

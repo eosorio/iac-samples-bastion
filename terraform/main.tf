@@ -18,17 +18,26 @@ resource "aws_vpc" "demo_vpc" {
 }
 
 module "tags" {
-  source         = "./tags"
+  source              = "./tags"
 
-  repo_url       = var.repo_url
-  environment    = var.environment
+  repo_url            = var.repo_url
+  environment         = var.environment
 }
 
 module "networking" {
-    source       = "./networking"
-    environment  = module.tags.environment
-    repo_url     = module.tags.repo_url
+  source                       = "./networking"
+  environment                  = module.tags.environment
+  repo_url                     = module.tags.repo_url
 
-    vpc_id       = aws_vpc.demo_vpc.id
-    subnet_cidrs = var.subnet_cidrs
+  vpc_id                       = aws_vpc.demo_vpc.id
+  vpc_default_route_table_id   = aws_vpc.demo_vpc.default_route_table_id
+  subnet_cidrs                 = var.subnet_cidrs
+}
+
+module "compute" {
+  source              = "./compute"
+  environment         = module.tags.environment
+  repo_url            = module.tags.repo_url
+
+  cloudops_public_key = var.cloudops_public_key
 }

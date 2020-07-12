@@ -10,6 +10,33 @@ resource "aws_internet_gateway" "staging_igw" {
   }
 }
 
+# Route tables
+
+resource "aws_default_route_table" "staging_private_rt" {
+  default_route_table_id  = var.vpc_default_route_table_id
+
+  tags = {
+    Name          = "staging_private"
+    Environment   = var.environment
+    IaCRepo       = var.repo_url
+  }
+}
+
+resource "aws_route_table" "staging_public_rt" {
+  vpc_id         = var.vpc_id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.staging_igw.id
+  }
+
+  tags  = {
+    Name          = "staging_public"
+    Environment   = var.environment
+    IaCRepo       = var.repo_url
+  }
+}
+
 resource "aws_subnet" "bastion_public_subnet1" {
   vpc_id                  = var.vpc_id
   cidr_block              = var.subnet_cidrs["public1"]

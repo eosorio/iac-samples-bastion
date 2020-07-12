@@ -8,9 +8,13 @@ variable "aws_region" {}
 
 variable "vpc_cidr" {}
 variable "vpc_id" {}
+variable "vpc_default_route_table_id" {}
 
 # Networking
 variable "subnet_cidrs" {
     type = map(string)
 }
+
+# Compute
+variable "cloudops_public_key" {}
 
