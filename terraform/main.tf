@@ -1,4 +1,8 @@
+#--- root main.tf
+
 provider "aws" {
+  region  = var.aws_region
+  profile = var.aws_profile
 }
 
 resource "aws_vpc" "demo_vpc" {
@@ -8,12 +12,27 @@ resource "aws_vpc" "demo_vpc" {
 
     tags = {
         Name          = "demo_vpc"
-        Environment   = var.environment
-        IaCRepo       = var.repo_url
+        Environment   = module.tags.environment
+        IaCRepo       = module.tags.repo_url
     }
 }
 
+module "tags" {
+  source         = "./tags"
+
+  repo_url       = var.repo_url
+  environment    = var.environment
+}
+
 module "networking" {
-    vpc_id       = aws_vpc.demo_vpc.id
     source       = "./networking"
+    environment  = module.tags.environment
+    repo_url     = module.tags.repo_url
+
+    vpc_id       = aws_vpc.demo_vpc.id
+    subnet_cidrs = {
+      public1    = ""
+      public2    = ""
+      public3    = ""
+    }
 }
