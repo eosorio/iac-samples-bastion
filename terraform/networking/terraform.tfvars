@@ -5,7 +5,3 @@ subnet_cidrs       = {
     public2    = "10.1.0.2/24"
     public3    = "10.1.0.3/24"
 }
-
-# Common tags populated in tags module
-environment       = ""
-repo_url          = ""
