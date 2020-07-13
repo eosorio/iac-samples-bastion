@@ -13,3 +13,7 @@ output "subnet_public1_id" {
 // output "subnet_public3_id" {
 //   value = aws_subnet.bastion_public_subnet3.id
 // }
+
+output "security_group_ssh_id" {
+    value = aws_security_group.public_ssh.id
+}

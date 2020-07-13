@@ -50,6 +50,32 @@ resource "aws_subnet" "bastion_public_subnet1" {
   }
 }
 
+resource "aws_subnet" "bastion_public_subnet2" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_cidrs["public2"]
+  map_public_ip_on_launch = true
+  availability_zone       = data.aws_availability_zones.available_azs.names[1]
+
+  tags = {
+    Name          = "public2"
+    Environment   = var.environment
+    IaCRepo       = var.repo_url
+  }
+}
+
+resource "aws_subnet" "bastion_public_subnet3" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = var.subnet_cidrs["public3"]
+  map_public_ip_on_launch = true
+  availability_zone       = data.aws_availability_zones.available_azs.names[2]
+
+  tags = {
+    Name          = "public3"
+    Environment   = var.environment
+    IaCRepo       = var.repo_url
+  }
+}
+
 resource "aws_security_group" "public_ssh" {
   name            = "public_ssh"
   description     = "Allow SSH from outside the VPC"
