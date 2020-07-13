@@ -108,3 +108,13 @@ resource "aws_route_table_association" "bastion_public1" {
   subnet_id      = aws_subnet.bastion_public_subnet1.id
   route_table_id = aws_route_table.staging_public_rt.id
 }
+
+resource "aws_route_table_association" "bastion_public2" {
+  subnet_id      = aws_subnet.bastion_public_subnet2.id
+  route_table_id = aws_route_table.staging_public_rt.id
+}
+
+resource "aws_route_table_association" "bastion_public3" {
+  subnet_id      = aws_subnet.bastion_public_subnet3.id
+  route_table_id = aws_route_table.staging_public_rt.id
+}
