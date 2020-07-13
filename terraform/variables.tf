@@ -14,6 +14,9 @@ variable "vpc_default_route_table_id" {}
 variable "subnet_cidrs" {
     type = map(string)
 }
+variable "subnet_id" {
+  type = map(string)
+}
 
 # Compute
 variable "cloudops_public_key" {}
