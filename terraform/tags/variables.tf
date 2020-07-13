@@ -2,3 +2,4 @@
 
 variable "environment" {}
 variable "repo_url" {}
+variable "service" {}

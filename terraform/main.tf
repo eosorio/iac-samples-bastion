@@ -22,6 +22,7 @@ module "tags" {
 
   repo_url            = var.repo_url
   environment         = var.environment
+  service             = var.service
 }
 
 module "networking" {
@@ -38,13 +39,14 @@ module "compute" {
   source                 = "./compute"
   environment            = module.tags.environment
   repo_url               = module.tags.repo_url
+  service                = module.tags.service
 
   cloudops_public_key    = var.cloudops_public_key
 
   subnet_id              = {
     public1    = module.networking.subnet_public1_id
-    public2    = ""
-    public3    = ""
+    public2    = module.networking.subnet_public2_id
+    public3    = module.networking.subnet_public3_id
   }
   security_group_ssh_id  = module.networking.security_group_ssh_id
 }

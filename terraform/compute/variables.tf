@@ -3,6 +3,7 @@
 # Common tags
 variable "environment" {}
 variable "repo_url" {}
+variable "service" {}
 
 variable "cloudops_public_key" {}
 
