@@ -1,9 +1,11 @@
-#--- tqgs/outputs.tf
+#--- tags/outputs.tf
 
 output "environment" {
-    value = var.environment
+    value          = var.environment
+    description    = "Environment"
 }
 
 output "repo_url" {
-    value = var.repo_url
+    value          = var.repo_url
+    description    = "Repository to manage this resource"
 }

@@ -44,7 +44,7 @@ resource "aws_subnet" "bastion_public_subnet1" {
   availability_zone       = data.aws_availability_zones.available_azs.names[0]
 
   tags = {
-    Name =       "public1"
+    Name          = "public1"
     Environment   = var.environment
     IaCRepo       = var.repo_url
   }
@@ -75,4 +75,10 @@ resource "aws_security_group" "public_ssh" {
     Environment   = var.environment
     IaCRepo       = var.repo_url
   }
+}
+
+# Subnet associations
+resource "aws_route_table_association" "bastion_public1" {
+  subnet_id      = aws_subnet.bastion_public_subnet1.id
+  route_table_id = aws_route_table.staging_public_rt.id
 }

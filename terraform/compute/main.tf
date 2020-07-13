@@ -20,7 +20,8 @@ resource "aws_instance" "bastion" {
   instance_type               = "t2.micro" 
   associate_public_ip_address = true
   vpc_security_group_ids      = ["sg-0e4abd37b57b91991"]
-  subnet_id                   = "subnet-015e9b1614f067363"
+  subnet_id                   = var.subnet_id["public1"]
+  key_name                    = aws_key_pair.bastions.key_name
 
   tags         = {
     Name          = "bastion1"

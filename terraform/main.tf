@@ -40,4 +40,11 @@ module "compute" {
   repo_url            = module.tags.repo_url
 
   cloudops_public_key = var.cloudops_public_key
+
+  subnet_id           = {
+    public1    = module.networking.subnet_public1_id
+    public2    = ""
+    public3    = ""
+  }
+  
 }
