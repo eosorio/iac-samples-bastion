@@ -1,7 +1,7 @@
 # LICENSE
 
-    Personal Finances - Asistant on recording your expenses by categories
-    Copyright (C) 2018. Eduardo Osorio
+    IaC Samples: Bastion Servers - Sample files for Infrastructure as Code
+    Copyright (C) 2020. Eduardo Osorio
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
