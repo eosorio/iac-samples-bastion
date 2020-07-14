@@ -9,6 +9,10 @@ variable "subnet_cidrs" {
   type = map(string)
 }
 
+variable "instance_bastion1_id" {}
+variable "instance_bastion2_id" {}
+variable "instance_bastion3_id" {}
+
 # Common tags
 variable "environment" {}
 variable "repo_url" {}

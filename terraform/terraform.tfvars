@@ -22,3 +22,8 @@ subnet_id     = {
 }
 
 security_group_ssh_id      = ""
+
+# Compute
+instance_bastion1_id       = ""
+instance_bastion2_id       = ""
+instance_bastion3_id       = ""

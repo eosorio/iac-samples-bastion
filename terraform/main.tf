@@ -33,6 +33,10 @@ module "networking" {
   vpc_id                       = aws_vpc.demo_vpc.id
   vpc_default_route_table_id   = aws_vpc.demo_vpc.default_route_table_id
   subnet_cidrs                 = var.subnet_cidrs
+
+  instance_bastion1_id         = module.compute.instance_bastion1_id
+  instance_bastion2_id         = module.compute.instance_bastion2_id
+  instance_bastion3_id         = module.compute.instance_bastion3_id
 }
 
 module "compute" {
@@ -49,4 +53,8 @@ module "compute" {
     public3    = module.networking.subnet_public3_id
   }
   security_group_ssh_id  = module.networking.security_group_ssh_id
+
+  instance_bastion1_id   = var.instance_bastion1_id
+  instance_bastion2_id   = var.instance_bastion2_id
+  instance_bastion3_id   = var.instance_bastion3_id
 }
