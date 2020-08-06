@@ -14,8 +14,8 @@ variable "subnet_id" {
 variable "security_group_ssh_id" {}
 
 variable "instance_bastion1_id" {}
-variable "instance_bastion2_id" {}
-variable "instance_bastion3_id" {}
+// variable "instance_bastion2_id" {}
+// variable "instance_bastion3_id" {}
 
 variable "bastion_instance_type" {}
 variable "asg_max_size" {}  

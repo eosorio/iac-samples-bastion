@@ -8,12 +8,12 @@ output "instance_bastion1_id" {
   description = "ID of bastion2 instance"
 }
 
-output "instance_bastion2_id" {
-  value       = aws_instance.bastion2.id
-  description = "ID of bastion2 instance"
-}
+// output "instance_bastion2_id" {
+//   value       = aws_instance.bastion2.id
+//   description = "ID of bastion2 instance"
+// }
 
-output "instance_bastion3_id" {
-  value       = aws_instance.bastion3.id
-  description = "ID of bastion2 instance"
-}
+// output "instance_bastion3_id" {
+//   value       = aws_instance.bastion3.id
+//   description = "ID of bastion2 instance"
+// }
