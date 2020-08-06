@@ -18,3 +18,7 @@ variable "instance_bastion2_id" {}
 variable "instance_bastion3_id" {}
 
 variable "bastion_instance_type" {}
+variable "asg_max_size" {}  
+variable "asg_min_size" {}
+variable "asg_capacity" {}
+variable "balancer_arn" {}

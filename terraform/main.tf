@@ -59,4 +59,9 @@ module "compute" {
   instance_bastion3_id   = var.instance_bastion3_id
 
   bastion_instance_type  = var.bastion_instance_type
+
+  asg_max_size           = var.asg_max_size
+  asg_min_size           = var.asg_min_size
+  asg_capacity           = var.asg_capacity
+  balancer_arn           = module.networking.balancer_arn
 }

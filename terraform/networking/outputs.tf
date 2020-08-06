@@ -15,5 +15,9 @@ output "subnet_public3_id" {
 }
 
 output "security_group_ssh_id" {
-    value = aws_security_group.public_ssh.id
+  value = aws_security_group.public_ssh.id
+}
+
+output "balancer_arn" {
+  value = aws_lb.bastion_balancer.arn
 }

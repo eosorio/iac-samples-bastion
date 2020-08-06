@@ -28,3 +28,9 @@ instance_bastion1_id       = ""
 instance_bastion2_id       = ""
 instance_bastion3_id       = ""
 bastion_instance_type      = "t2.micro"
+
+asg_max_size               = 3
+asg_min_size               = 1
+asg_capacity               = 1
+
+balancer_arn                = ""
