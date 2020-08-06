@@ -62,3 +62,13 @@ resource "aws_instance" "bastion3" {
     Service       = "bastion"
   }
 }
+
+
+# ASG and Launch Template
+
+resource "aws_launch_template" "bastions_template" {
+  name_prefix       = "bastion"
+  image_id          = data.aws_ami.amazon-linux2.id
+  instance_type     = var.bastion_instance_type
+}
+

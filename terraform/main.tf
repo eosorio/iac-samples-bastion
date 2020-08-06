@@ -57,4 +57,6 @@ module "compute" {
   instance_bastion1_id   = var.instance_bastion1_id
   instance_bastion2_id   = var.instance_bastion2_id
   instance_bastion3_id   = var.instance_bastion3_id
+
+  bastion_instance_type  = var.bastion_instance_type
 }
