@@ -14,7 +14,7 @@ There is a load balancer which checks the health of every instance and routes th
 ```
 export TF_VAR_cloudops_public_key=$(cat ~/.ssh/id_rsa.pub)
 ```
-* Terraform plan/apply
+* Terraform validate/plan/apply
 ```
 terraform plan -var-file=awsprofile.tfvars
 ```

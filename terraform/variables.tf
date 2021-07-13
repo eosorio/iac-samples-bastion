@@ -37,7 +37,7 @@ variable "security_group_ssh_id" {}
 
 # Compute
 variable "cloudops_public_key" {
-  description      = "SSH public key local path"
+  description      = "SSH public key content (it starts with ssh-rsa)"
   type             = string
 }
 
