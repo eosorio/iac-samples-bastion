@@ -35,8 +35,6 @@ module "networking" {
   subnet_cidrs                 = var.subnet_cidrs
 
   instance_bastion1_id         = module.compute.instance_bastion1_id
-  // instance_bastion2_id         = module.compute.instance_bastion2_id
-  // instance_bastion3_id         = module.compute.instance_bastion3_id
 }
 
 module "compute" {
@@ -55,8 +53,6 @@ module "compute" {
   security_group_ssh_id  = module.networking.security_group_ssh_id
 
   instance_bastion1_id   = var.instance_bastion1_id
-  // instance_bastion2_id   = var.instance_bastion2_id
-  // instance_bastion3_id   = var.instance_bastion3_id
 
   bastion_instance_type  = var.bastion_instance_type
 

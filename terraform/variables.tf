@@ -1,9 +1,20 @@
 #--- root variables.tf
 
 # Common tags
-variable "environment" {}
-variable "repo_url" {}
-variable "service" {}
+variable "environment" {
+  description     = "Environment to deploy"
+  type            = string
+}
+
+variable "repo_url" {
+  description     = "IaC source repo"
+  type            = string
+}
+
+variable "service" {
+  description     = "Service to which operation costs will be billed"
+  type            = string
+}
 
 # AWS environment
 variable "aws_profile" {}
@@ -25,10 +36,12 @@ variable "subnet_id" {
 variable "security_group_ssh_id" {}
 
 # Compute
-variable "cloudops_public_key" {}
+variable "cloudops_public_key" {
+  description      = "SSH public key local path"
+  type             = string
+}
+
 variable "instance_bastion1_id" {}
-// variable "instance_bastion2_id" {}
-// variable "instance_bastion3_id" {}
 variable "bastion_instance_type" {}
 
 variable "asg_max_size" {}  
