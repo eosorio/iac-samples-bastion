@@ -33,9 +33,15 @@ variable "subnet_cidrs" {
 variable "subnet_id" {
   type = map(string)
 }
+
 variable "security_group_ssh_id" {
   description      = "The SG ID to allow incoming SSH connections"
   type             = string
+
+  validation {
+    condition     = can(regex("^sg-", var.security_group_ssh_id))
+    error_message = "Invalid Security Group ID. It should start with \"sg-\"."
+  }
 }
 
 # Compute
