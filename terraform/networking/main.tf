@@ -107,15 +107,3 @@ resource "aws_lb_target_group_attachment" "bastion1" {
   target_id        = var.instance_bastion1_id
   port             = 22
 }
-
-// resource "aws_lb_target_group_attachment" "bastion2" {
-//   target_group_arn = aws_lb_target_group.ssh_bastions.arn
-//   target_id        = var.instance_bastion2_id
-//   port             = 22
-// }
-
-// resource "aws_lb_target_group_attachment" "bastion3" {
-//   target_group_arn = aws_lb_target_group.ssh_bastions.arn
-//   target_id        = var.instance_bastion3_id
-//   port             = 22
-// }
