@@ -10,8 +10,8 @@ variable "subnet_cidrs" {
 }
 
 variable "instance_bastion1_id" {}
-// variable "instance_bastion2_id" {}
-// variable "instance_bastion3_id" {}
+
+variable "security_group_ssh_id" {}
 
 # Common tags
 variable "environment" {}

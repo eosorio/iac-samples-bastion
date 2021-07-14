@@ -35,6 +35,7 @@ module "networking" {
   subnet_cidrs                 = var.subnet_cidrs
 
   instance_bastion1_id         = module.compute.instance_bastion1_id
+  security_group_ssh_id        = var.security_group_ssh_id
 }
 
 module "compute" {
@@ -43,12 +44,10 @@ module "compute" {
   repo_url               = module.tags.repo_url
   service                = module.tags.service
 
-  cloudops_public_key    = var.cloudops_public_key
+  key_name               = var.key_name
 
   subnet_id              = {
     public1    = module.networking.subnet_public1_id
-    public2    = module.networking.subnet_public2_id
-    public3    = module.networking.subnet_public3_id
   }
   security_group_ssh_id  = module.networking.security_group_ssh_id
 

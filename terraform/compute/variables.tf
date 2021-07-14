@@ -5,7 +5,7 @@ variable "environment" {}
 variable "repo_url" {}
 variable "service" {}
 
-variable "cloudops_public_key" {}
+variable "key_name" {}
 
 variable "subnet_id" {
   type = map(string)

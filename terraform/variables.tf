@@ -33,11 +33,19 @@ variable "subnet_cidrs" {
 variable "subnet_id" {
   type = map(string)
 }
-variable "security_group_ssh_id" {}
+variable "security_group_ssh_id" {
+  description      = "The SG ID to allow incoming SSH connections"
+  type             = string
+}
 
 # Compute
 variable "cloudops_public_key" {
   description      = "Contents of the EC2 public key. It starts with something like ssh-rsa AAAAB3NzaC1y..."
+  type             = string
+}
+
+variable "key_name" {
+  description      = "The name of the existing EC2 key pair to associate to the bastion"
   type             = string
 }
 
