@@ -1,9 +1,11 @@
 # iac-samples-bastion
 Infrastructure as Code Sample: Bastion hosts
 
-These are sample files for setting up a High Availabilty Cluster for bastion Linux servers on AWS. The HA is achieved by using three AZs on one single region and having one EC2 instance running per each AZ.
+These are sample files for setting up a High Availabilty Cluster for bastion Linux servers on AWS. The HA is achieved by using an Auto Scaling Group git a minimum size of 1 and desired size of 1 instance.
 
-There is a load balancer which checks the health of every instance and routes the SSH requests to a healthy EC2 instance. If this load balancer is registered to a DNS record it would be user friendlier, having the user to connect to bastion.mydomain.com:22 and a healthy EC2 instance will take the connection request.
+If the ASG detects the instance is unhealthy, it will replace it immediately. It is highly recommended that you use a custom AMI instead the Amazon Linux AMI used in this sample, to follow the concept of immutable infrastructure.
+
+Soon I will be creating another repository to create a customized AMI using Hashicorp Packer.
 
 ## Deploying
 ### In Terraform
