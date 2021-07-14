@@ -33,11 +33,25 @@ variable "subnet_cidrs" {
 variable "subnet_id" {
   type = map(string)
 }
-variable "security_group_ssh_id" {}
+
+variable "security_group_ssh_id" {
+  description      = "The SG ID to allow incoming SSH connections"
+  type             = string
+
+  validation {
+    condition     = can(regex("^sg-", var.security_group_ssh_id))
+    error_message = "Invalid Security Group ID. It should start with \"sg-\"."
+  }
+}
 
 # Compute
-variable "cloudops_public_key" {
-  description      = "SSH public key local path"
+// variable "cloudops_public_key" {
+//   description      = "Contents of the EC2 public key. It starts with something like ssh-rsa AAAAB3NzaC1y..."
+//   type             = string
+// }
+
+variable "key_name" {
+  description      = "The name of the existing EC2 key pair to associate to the bastion"
   type             = string
 }
 
