@@ -39,10 +39,10 @@ variable "security_group_ssh_id" {
 }
 
 # Compute
-variable "cloudops_public_key" {
-  description      = "Contents of the EC2 public key. It starts with something like ssh-rsa AAAAB3NzaC1y..."
-  type             = string
-}
+// variable "cloudops_public_key" {
+//   description      = "Contents of the EC2 public key. It starts with something like ssh-rsa AAAAB3NzaC1y..."
+//   type             = string
+// }
 
 variable "key_name" {
   description      = "The name of the existing EC2 key pair to associate to the bastion"

@@ -5,6 +5,7 @@ provider "aws" {
   profile = var.aws_profile
 }
 
+# If you want to create a new VPC, use the above resource block; else use a data block instead
 resource "aws_vpc" "demo_vpc" {
     cidr_block            = var.vpc_cidr
     enable_dns_hostnames  = true

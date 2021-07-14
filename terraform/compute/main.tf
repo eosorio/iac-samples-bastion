@@ -42,8 +42,6 @@ resource "aws_autoscaling_group" "bastions_asg" {
   #target_group_arns   = [var.balancer_arn]
   vpc_zone_identifier = [
                         var.subnet_id["public1"], 
-                        var.subnet_id["public2"],
-                        var.subnet_id["public3"],
                         ]
 
   launch_template {
