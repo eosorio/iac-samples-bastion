@@ -23,7 +23,15 @@ variable "aws_region" {}
 
 # VPC
 variable "vpc_cidr" {}
-variable "vpc_id" {}
+variable "vpc_id" {
+  description     = "The ID of the VPC"
+
+  validation {
+    condition     = can(regex("^vpc-", var.vpc_id))
+    error_message = "Invalid VPC ID. It should start with \"vpc-\"."
+  }  
+}
+
 variable "vpc_default_route_table_id" {}
 
 # Networking

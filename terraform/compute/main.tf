@@ -10,11 +10,18 @@ data "aws_ami" "amazon-linux2" {
   }
 }
 
+module "public_ssh_sg" {
+  source         = "git::ssh://git@github.com/eosorio/iac-samples-aws-ec2.git//terraform/security_groups?ref=tags/v20210801"
+  vpc_id         = var.vpc_id
+  environment    = var.environment
+}
+
+
 resource "aws_instance" "bastion1" {
   ami                         = data.aws_ami.amazon-linux2.id
   instance_type               = "t2.micro" 
   associate_public_ip_address = true
-  vpc_security_group_ids      = [var.security_group_ssh_id]
+  vpc_security_group_ids      = [module.public_ssh_sg.id]
   subnet_id                   = var.subnet_id["public1"]
   key_name                    = var.key_name
 
