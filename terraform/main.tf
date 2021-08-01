@@ -51,7 +51,6 @@ module "compute" {
   subnet_id              = {
     public1    = module.networking.subnet_public1_id
   }
-  security_group_ssh_id  = module.networking.security_group_ssh_id
 
   instance_bastion1_id   = var.instance_bastion1_id
 
