@@ -11,7 +11,7 @@ data "aws_ami" "amazon-linux2" {
 }
 
 module "public_ssh_sg" {
-  source         = "git::ssh://git@github.com:eosorio/iac-samples-aws-ec2.git?ref=v20210801//security_groups"
+  source         = "git::ssh://git@github.com/eosorio/iac-samples-aws-ec2.git//terraform/security_groups?ref=tags/v20210801"
   vpc_id         = var.vpc_id
   environment    = var.environment
 }
