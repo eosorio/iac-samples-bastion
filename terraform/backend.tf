@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket                 = "tf-state-eosorio-staging-991637"
-    dynamodb_table         = "terraform-state-lock-dynamo"
-    key                    = "terraform/terraform-bastion_demo.tfstate"
+    bucket                 = "my_bucket_name_here"
+    dynamodb_table         = "my_dynamodb_table_name_here"
+    key                    = "my_tf_state_file_name_here"
     region                 = "us-east-1"
   }
 }
