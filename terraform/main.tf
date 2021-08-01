@@ -47,6 +47,7 @@ module "compute" {
 
   key_name               = var.key_name
 
+  vpc_id                 = aws_vpc.demo_vpc.id
   subnet_id              = {
     public1    = module.networking.subnet_public1_id
   }
